@@ -4,7 +4,7 @@ import { fetchTrendMovies } from '../services/apiMovie';
 import PageHeading from 'components/PageHeading/PageHeading';
 
 export default function HomePage() {
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovies] = useState([]);
 
   useEffect(() => {
     fetchTrendMovies().then(({ results }) => setMovies(results));
@@ -13,10 +13,10 @@ export default function HomePage() {
   return (
     <>
       <PageHeading>Trending today</PageHeading>
-      {movies && (
+      {movie && (
         <ul>
-          {movies.map(m => (
-            <li key={m.id}>
+          {movie.map(m => (
+            <li key={movie.id}>
               <Link to={`movies/${m.id}`}> {m.title}</Link>
             </li>
           ))}
