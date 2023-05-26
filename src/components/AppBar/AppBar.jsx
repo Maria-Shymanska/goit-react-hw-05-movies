@@ -1,10 +1,10 @@
 import Navigation from '../Navigation/Navigation';
-import { Container } from './AppBar.styled';
+import { Layout } from './AppBar.styled';
 
 export default function Appbar() {
   return (
-    <Container>
+    <Layout>
       <Navigation />
-    </Container>
+    </Layout>
   );
 }

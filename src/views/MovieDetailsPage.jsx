@@ -1,27 +1,45 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { fetchTrendMovies } from '../services/apiMovie';
-import PageHeading from 'components/PageHeading/PageHeading';
+import {
+  Link,
+  useNavigate,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
+import { fetchMovieDetails } from '../services/apiMovie';
+import MovieDetailsElement from './MovieDetailsElement/MovieDetailsElement';
 
-export default function HomePage() {
-  const [movies, setMovies] = useState([]);
+export default function MovieDetailsPage() {
+  const [detailsMovies, setDetailsMovies] = useState(null);
+  const { movieId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    fetchTrendMovies().then(({ results }) => setMovies(results));
-  }, []);
+    fetchMovieDetails(movieId).then(setDetailsMovies);
+  }, [movieId]);
 
   return (
     <>
-      <PageHeading>Trending today</PageHeading>
-      {movies && (
-        <ul>
-          {movies.map(m => (
-            <li key={m.id}>
-              <Link to={`movies/${m.id}`}> {m.title}</Link>
-            </li>
-          ))}
-        </ul>
+      {detailsMovies && (
+        <main>
+          {
+            <MovieDetailsElement
+              onClick={() => navigate(location?.state?.from ?? '/')}
+              movie={detailsMovies}
+            />
+          }
+          <p>Additional information</p>
+          <Link to="cast" state={{ from: location?.state?.from ?? '/' }}>
+            Cast
+          </Link>
+          <br />
+          <Link to="reviews" state={{ from: location?.state?.from ?? '/' }}>
+            Reviews
+          </Link>
+        </main>
       )}
+      <Outlet />
     </>
   );
 }

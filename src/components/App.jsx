@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Container from './Layout/Layout';
+import Layout from './Layout/Layout';
 import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
 
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/" element={<Container />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="movies" element={<SearchMovies />} />
           <Route path="movies/:movieId" element={<MovieDetailsPage />}>

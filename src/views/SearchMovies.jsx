@@ -28,8 +28,8 @@ export default function SearchMovies() {
       {movie && movie.length > 0 && (
         <ul>
           {movie.map(m => (
-            <li key={m.id}>
-              <Link to={`${m.id}`} state={{ from: location }}>
+            <li key={movie.id}>
+              <Link to={`${movie.id}`} state={{ from: location }}>
                 {m.title}
               </Link>
             </li>

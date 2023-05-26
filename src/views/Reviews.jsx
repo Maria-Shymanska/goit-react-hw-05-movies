@@ -14,8 +14,8 @@ export default function Reviews() {
     <>
       {review && review.length > 0 ? (
         <ul>
-          {review.map(el => {
-            const { id, author, content } = el;
+          {review.map(element => {
+            const { id, author, content } = element;
             return (
               <li key={id}>
                 <h3>{author}</h3>
