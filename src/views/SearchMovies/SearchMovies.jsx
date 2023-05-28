@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
-import { fetchSearchMovies } from '../services/apiMovie';
-import SearchMoviesForm from './SearchMoviesForm/SearchMoviesForm';
+import { fetchSearchMovies } from '../../services/apiMovie';
+import SearchMoviesForm from '../SearchMoviesForm/SearchMoviesForm';
 
 export default function SearchMovies() {
   const location = useLocation();
@@ -28,8 +28,8 @@ export default function SearchMovies() {
       {movie && movie.length > 0 && (
         <ul>
           {movie.map(m => (
-            <li key={movie.id}>
-              <Link to={`${movie.id}`} state={{ from: location }}>
+            <li key={m.id}>
+              <Link to={`${m.id}`} state={{ from: location }}>
                 {m.title}
               </Link>
             </li>

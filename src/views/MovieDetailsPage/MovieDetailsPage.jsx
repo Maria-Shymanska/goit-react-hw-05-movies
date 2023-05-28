@@ -6,8 +6,8 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { fetchMovieDetails } from '../services/apiMovie';
-import MovieDetailsElement from './MovieDetailsElement/MovieDetailsElement';
+import { fetchMovieDetails } from '../../services/apiMovie';
+import MovieDetailsElement from '../MovieDetailsElement/MovieDetailsElement';
 
 export default function MovieDetailsPage() {
   const [detailsMovies, setDetailsMovies] = useState(null);

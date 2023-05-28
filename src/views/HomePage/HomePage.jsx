@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchTrendMovies } from '../services/apiMovie';
+import { fetchTrendMovies } from '../../services/apiMovie';
 import PageHeading from 'components/PageHeading/PageHeading';
 
 export default function HomePage() {

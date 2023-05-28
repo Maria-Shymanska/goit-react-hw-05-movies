@@ -1,18 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { lazy, Suspense } from 'react';
-import Loader from './Loader/Loader';
 
-const HomePage = lazy(() => import('../views/HomePage'));
-const SearchMovies = lazy(() => import('../views/SearchMovies'));
-const MovieDetailsPage = lazy(() => import('../views/MovieDetailsPage'));
-const Cast = lazy(() => import('../views/Cast'));
+const HomePage = lazy(() => import('../views/HomePage/HomePage'));
+const SearchMovies = lazy(() => import('../views/SearchMovies/SearchMovies'));
+const MovieDetailsPage = lazy(() =>
+  import('../views/MovieDetailsPage/MovieDetailsPage')
+);
+const Cast = lazy(() => import('../views/Cast/Cast'));
 const Reviews = lazy(() => import('../views/Reviews'));
 const NotFoundView = lazy(() => import('../views/NotFoundView'));
 
 export default function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={''}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
