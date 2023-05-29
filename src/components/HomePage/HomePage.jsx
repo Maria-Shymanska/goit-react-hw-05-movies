@@ -17,7 +17,7 @@ export default function HomePage() {
         <ul>
           {movie.map(m => (
             <li key={movie.id}>
-              <Link to={`movies/${m.id}`}> {m.title}</Link>
+              <Link to={`movies/${movie.id}`}> {movie.title}</Link>
             </li>
           ))}
         </ul>
