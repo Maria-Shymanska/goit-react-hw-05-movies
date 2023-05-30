@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchTrendMovies } from '../../services/apiMovie';
+import { fetchTrendMovies } from '../services/apiMovie';
 import PageHeading from 'components/PageHeading/PageHeading';
 
 export default function HomePage() {
-  const [movie, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     fetchTrendMovies().then(({ results }) => setMovies(results));
@@ -13,11 +13,11 @@ export default function HomePage() {
   return (
     <>
       <PageHeading>Trending today</PageHeading>
-      {movie && (
+      {movies && (
         <ul>
-          {movie.map(m => (
-            <li key={movie.id}>
-              <Link to={`movies/${movie.id}`}> {movie.title}</Link>
+          {movies.map(m => (
+            <li key={m.id}>
+              <Link to={`movies/${m.id}`}> {m.title}</Link>
             </li>
           ))}
         </ul>

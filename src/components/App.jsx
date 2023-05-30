@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { lazy, Suspense } from 'react';
+import HomePage from '../components/HomePage/HomePage';
 
 const HomePage = lazy(() => import('../components/HomePage/HomePage'));
 const SearchMovies = lazy(() =>
