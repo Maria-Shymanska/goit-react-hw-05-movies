@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { fetchSearchMovies } from '../services/apiMovie';
-import SearchMoviesForm from './SearchMoviesForm/SearchMoviesForm';
+import SearchMoviesForm from 'components/SearchMoviesForm/SearchMoviesForm';
 
 export default function SearchMovies() {
   const location = useLocation();
