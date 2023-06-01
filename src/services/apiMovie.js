@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function fetchTrendMovies() {
+export async function TrendMoviesFetch() {
   const response = await axios.get(
     'https://api.themoviedb.org/3/trending/movie/day?api_key=3146c777d7ac16a246449915cf00b285'
   );
@@ -8,7 +8,7 @@ export async function fetchTrendMovies() {
   return response.data;
 }
 
-export async function fetchSearchMovies(query) {
+export async function SearchMoviesFetch(query) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=3146c777d7ac16a246449915cf00b285&language=en-US&page=1&include_adult=false`
   );
@@ -16,7 +16,7 @@ export async function fetchSearchMovies(query) {
   return response.data;
 }
 
-export async function fetchMovieDetails(id) {
+export async function MovieDetalisFetch(id) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=3146c777d7ac16a246449915cf00b285&language=en-US`
   );
@@ -24,7 +24,7 @@ export async function fetchMovieDetails(id) {
   return response.data;
 }
 
-export async function fetchMovieCredits(id) {
+export async function MovieCreditsFetch(id) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=3146c777d7ac16a246449915cf00b285&language=en-US`
   );
@@ -32,7 +32,7 @@ export async function fetchMovieCredits(id) {
   return response.data;
 }
 
-export async function fetchMoviesReviews(id) {
+export async function MovieReviewsFetch(id) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=3146c777d7ac16a246449915cf00b285&language=en-US&page=1`
   );

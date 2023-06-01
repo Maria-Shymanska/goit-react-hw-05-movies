@@ -1,15 +1,19 @@
-import { Layout } from './Layout.styled';
-import { Suspense } from 'react';
-import Appbar from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import Header from 'components/Header/Header';
+import Loader from 'components/Loader/Loader';
 
-export default function Loader() {
+const Layout = () => {
   return (
-    <Layout>
-      <Appbar />
-      <Suspense fallback={''}>
-        <Outlet />
-      </Suspense>
-    </Layout>
+    <>
+      <Header />
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </main>
+    </>
   );
-}
+};
+
+export default Layout;
