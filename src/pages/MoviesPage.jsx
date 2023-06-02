@@ -10,7 +10,6 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams('');
 
   const query = searchParams.get('query') ?? '';
-  // const page = searchParams.get('page') ?? 1;
 
   useEffect(() => {
     if (!query) {
